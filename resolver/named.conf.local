@@ -1,0 +1,4 @@
+zone "woodytoys.test" {
+    type master; 
+    file "/etc/bind/db.woodytoys.test";
+};

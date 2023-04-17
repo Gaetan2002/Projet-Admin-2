@@ -1,0 +1,13 @@
+$TTL    86400
+@       IN      SOA     ns1.woodytoys.test. admin.woodytoys.test. (
+                        2022041701      ; serial number
+                        3600            ; refresh
+                        1800            ; retry
+                        604800          ; expire
+                        86400           ; minimum TTL
+                        )
+;
+@       IN      NS      ns1.woodytoys.test.
+
+ns1     IN      A       192.168.0.1
+www     IN      A       172.17.0.4

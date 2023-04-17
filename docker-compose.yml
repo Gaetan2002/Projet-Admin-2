@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  dns_server:
+    build: ./resolver
+    container_name: dns_server
+    ports:
+      - '5454:53/udp'
+      - '5454:53/tcp'
+    networks:
+      my_network:
+        aliases:
+          - ns1.woodytoys.test
+
+  web_server:
+    build: ./web
+    container_name: web_server
+    networks:
+      my_network:
+        aliases:
+          - www.woodytoys.test
+
+networks:
+  my_network:
