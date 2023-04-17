@@ -10,4 +10,6 @@ $TTL    86400
 @       IN      NS      ns1.woodytoys.test.
 
 ns1     IN      A       192.168.0.1
-www     IN      A       172.17.0.4
+www     IN      A       192.168.0.3
+mail    IN      A       192.168.0.2
+@       IN      MX 10   mail.woodytoys.test.

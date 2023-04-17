@@ -19,5 +19,25 @@ services:
         aliases:
           - www.woodytoys.test
 
+  user_container:
+    build: ./user
+    container_name: user_container
+    command: tail -f /dev/null
+    networks:
+      my_network:
+
+  mail_server:
+    image: catatnight/postfix:latest
+    container_name: mail_server
+    environment:
+      - maildomain=woodytoys.test
+      - smtp_user=user:password
+    ports:
+      - '2525:25'
+    networks:
+      my_network:
+        aliases:
+          - mail.woodytoys.test
+
 networks:
   my_network:

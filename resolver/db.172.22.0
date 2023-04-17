@@ -1,0 +1,16 @@
+$TTL 86400
+@   IN  SOA     ns1.example.com. admin.example.com. (
+                  2022041701 ; Serial
+                  3600       ; Refresh
+                  1800       ; Retry
+                  604800     ; Expire
+                  86400      ; Negative Cache TTL
+                )
+
+; Name server
+@      IN      NS      ns1.example.com.
+
+; PTR Records
+1      IN      PTR     host1.example.com.
+3      IN      PTR     www
+2.0.168.192.in-addr.arpa.   IN   PTR  mail.woodytoys.test.
