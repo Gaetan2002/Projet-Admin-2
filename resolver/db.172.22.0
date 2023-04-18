@@ -1,5 +1,5 @@
 $TTL 86400
-@   IN  SOA     ns1.example.com. admin.example.com. (
+@   IN  SOA     ns1.woodytoys.test. admin.woodytoys.test. (
                   2022041701 ; Serial
                   3600       ; Refresh
                   1800       ; Retry
@@ -8,9 +8,10 @@ $TTL 86400
                 )
 
 ; Name server
-@      IN      NS      ns1.example.com.
+@      IN      NS      ns1.woodytoys.test.
 
 ; PTR Records
-1      IN      PTR     host1.example.com.
-3      IN      PTR     www
-2.0.168.192.in-addr.arpa.   IN   PTR  mail.woodytoys.test.
+10       IN      PTR     ns1.woodytoys.test.
+11       IN      PTR     mail.woodytoys.test.
+12       IN      PTR     www.woodytoys.test.
+13       IN      PTR     dovecot.woodytoys.test.
