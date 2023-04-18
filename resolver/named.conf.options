@@ -1,16 +1,12 @@
 options {
     directory "/var/cache/bind";
-
     recursion yes;
-    allow-recursion { localnets; };
-
+    allow-query { any; };
     forwarders {
-        8.8.8.8;
-        8.8.4.4;
+        8.8.8.8; # Google Public DNS
+        8.8.4.4; # Google Public DNS
         127.0.0.11;
     };
-
     dnssec-validation auto;
-    auth-nxdomain no;
-    listen-on { any; };
+    listen-on{ any; };
 };

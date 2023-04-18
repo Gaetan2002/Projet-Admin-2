@@ -1,21 +1,29 @@
-# Dockerfile for Apache Web Server
 FROM ubuntu:latest
 
-# Install the Apache web server software
-RUN apt-get update && apt-get install -y apache2
+RUN apt-get update && apt-get install -y apt-utils apache2
 
-# Set the ServerName directive to suppress the warning message
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+# Create DocumentRoot directories
+RUN mkdir -p /site1 /site2 /site3
 
-# Copy any custom configuration or website files
-# COPY my_site.conf /etc/apache2/sites-available/my_site.conf
-# COPY html/ /var/www/html/
+# Copy virtual host configuration files
+COPY site1.conf /etc/apache2/sites-available/site1.conf
+COPY site2.conf /etc/apache2/sites-available/site2.conf
+COPY site3.conf /etc/apache2/sites-available/site3.conf
 
-# Enable custom site (if needed)
-# RUN a2ensite my_site.conf && a2dissite 000-default
+# Enable virtual hosts
+RUN a2ensite site1.conf
+RUN a2ensite site2.conf
+RUN a2ensite site3.conf
 
-# Expose the HTTP port
+# Disable default site
+RUN a2dissite 000-default.conf
+
+# Enable mod_rewrite
+RUN a2enmod rewrite
+
+# Restart Apache
+RUN service apache2 restart
+
 EXPOSE 80/tcp
 
-# Start the Apache web server when the container starts
 CMD ["apachectl", "-D", "FOREGROUND"]

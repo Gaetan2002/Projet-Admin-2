@@ -8,6 +8,12 @@ $TTL    86400
                         )
 ;
 @       IN      NS      ns1.woodytoys.test.
+@       IN      MX 10   mail.woodytoys.test.
 
-ns1     IN      A       192.168.0.1
-www     IN      A       web-server
+ns1     IN      A       172.20.0.10
+mail    IN      A       172.20.0.11
+www     IN      A       172.20.0.12
+dovecot IN      A       172.20.0.13
+site1   IN      A       172.20.0.14
+site2   IN      A       172.20.0.15
+site3   IN      A       172.20.0.16

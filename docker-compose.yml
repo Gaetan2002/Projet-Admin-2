@@ -1,0 +1,64 @@
+version: '3.9'
+services:
+  dns_server:
+    build: ./resolver
+    container_name: dns_server
+    ports:
+      - '5455:53/udp'
+      - '5456:53/tcp'
+    networks:
+      my_network:
+        ipv4_address: 172.20.0.10
+        aliases:
+          - ns1.woodytoys.test
+
+  web_server:
+    build: ./web
+    container_name: web_server
+    networks:
+      my_network:
+        ipv4_address: 172.20.0.11
+        aliases:
+          - www.woodytoys.test
+    volumes:
+      - ./site1:/var/www/site1
+      - ./site2:/var/www/site2
+      - ./site3:/var/www/site3
+
+  postfix_container:
+    build: ./mail
+    container_name: postfix_container
+    ports:
+      - '2526:25'
+    networks:
+      my_network:
+        ipv4_address: 172.20.0.12
+        aliases:
+          - mail.woodytoys.test
+
+  dovecot_container:
+    build: ./dovecot
+    container_name: dovecot_container
+    ports:
+      - '143:143'
+      - '993:993'
+    networks:
+      my_network:
+        ipv4_address: 172.20.0.13
+        aliases:
+          - dovecot.woodytoys.test
+
+  user_container:
+    build: ./user
+    container_name: user_container
+    command: tail -f /dev/null
+    networks:
+      my_network:
+
+networks:
+  my_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1
