@@ -21,9 +21,33 @@ services:
         aliases:
           - www.woodytoys.test
     volumes:
-      - ./site1:/var/www/site1
-      - ./site2:/var/www/site2
-      - ./site3:/var/www/site3
+      - ./web/site1:/var/www/site1
+      - ./web/site2:/var/www/site2
+      - ./web/site3:/var/www/site3
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: my_db
+      DB_USERNAME: my_user
+      DB_PASSWORD: my_password
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: my_password
+      MYSQL_DATABASE: my_db
+      MYSQL_USER: my_user
+      MYSQL_PASSWORD: my_password
+    networks:
+      my_network:
+        ipv4_address: 172.20.0.14
+        aliases:
+          - mysql.woodytoys.test
 
   postfix_container:
     build: ./mail
@@ -52,6 +76,8 @@ services:
     build: ./user
     container_name: user_container
     command: tail -f /dev/null
+    dns:
+      - 172.20.0.10
     networks:
       my_network:
 

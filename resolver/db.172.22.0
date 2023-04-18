@@ -12,6 +12,6 @@ $TTL 86400
 
 ; PTR Records
 10       IN      PTR     ns1.woodytoys.test.
-11       IN      PTR     mail.woodytoys.test.
-12       IN      PTR     www.woodytoys.test.
+11       IN      PTR     www.woodytoys.test.
+12       IN      PTR     mail.woodytoys.test.
 13       IN      PTR     dovecot.woodytoys.test.
