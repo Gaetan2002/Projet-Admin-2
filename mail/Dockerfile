@@ -5,7 +5,7 @@ FROM catatnight/postfix:latest
 ENV maildomain=woodytoys.test
 ENV smtp_user=user:password
 
-run apt-get update && \
+RUN apt-get update && \
     apt-get install -y mailutils
 
 # Create a virtual alias map file
