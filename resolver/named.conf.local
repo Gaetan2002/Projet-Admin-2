@@ -2,3 +2,9 @@ zone "woodytoys.test" {
     type master;
     file "/etc/bind/db.woodytoys.test";
 };
+
+zone "0.22.172.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.172.22.0";
+};
+
