@@ -5,5 +5,7 @@
 	</head>
 	<body>
 		<h1>Welcome to Site 3!</h1>
+
+		<?php include_once 'users.php'; ?>
 	</body>
 </html>

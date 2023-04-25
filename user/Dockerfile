@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 RUN apt-get update && \
     apt-get install -y apt-utils && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    dnsutils bind9utils nano iputils-ping mutt curl inetutils-traceroute postfix
+    dnsutils bind9utils nano iputils-ping mutt curl inetutils-traceroute postfix links
 
 # Preconfigure Postfix
 COPY install_postfix.sh /tmp/install_postfix.sh
