@@ -22,8 +22,8 @@ services:
           - www.woodytoys.test
     volumes:
       - ./web/site1:/var/www/site1
-      - ./web/site2:/var/www/site2
-      - ./web/site3:/var/www/site3
+      - ./web/b2b:/var/www/b2b
+      - ./web/erp:/var/www/erp
     env_file: ./web/env.list
     depends_on:
       - mysql

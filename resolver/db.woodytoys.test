@@ -13,7 +13,7 @@ $TTL    86400
 ns1     IN      A       172.20.0.10
 www     IN      A       172.20.0.11
 site1   IN      A       172.20.0.11
-site2   IN      A       172.20.0.11
-site3   IN      A       172.20.0.11
+b2b     IN      A       172.20.0.11
+erp     IN      A       172.20.0.11
 mail    IN      A       172.20.0.12
 dovecot IN      A       172.20.0.13
