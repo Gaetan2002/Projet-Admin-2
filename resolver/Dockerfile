@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y bind9
 COPY named.conf /etc/bind/named.conf
 COPY named.conf.options /etc/bind/named.conf.options
 COPY named.conf.local /etc/bind/named.conf.local
-COPY db.woodytoys.test /etc/bind/db.woodytoys.test
-COPY db.172.22.0 /etc/bind/db.172.22.0
+COPY db.l1-6.ephec-ti.be /etc/bind/db.l1-6.ephec-ti.be
+COPY db.172.20.0 /etc/bind/db.172.20.0
 
 # Expose the DNS port
 EXPOSE 53/tcp

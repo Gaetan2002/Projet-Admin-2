@@ -10,7 +10,7 @@ services:
       my_network:
         ipv4_address: 172.20.0.10
         aliases:
-          - ns1.woodytoys.test
+          - ns.l1-6.ephec-ti.be
 
   web_server:
     build: ./web
@@ -19,9 +19,9 @@ services:
       my_network:
         ipv4_address: 172.20.0.11
         aliases:
-          - www.woodytoys.test
+          - www.l1-6.ephec-ti.be
     volumes:
-      - ./web/site1:/var/www/site1
+      - ./web/site:/var/www/site
       - ./web/b2b:/var/www/b2b
       - ./web/erp:/var/www/erp
     env_file: ./web/env.list
@@ -38,7 +38,7 @@ services:
       my_network:
         ipv4_address: 172.20.0.14
         aliases:
-          - mysql.woodytoys.test
+          - mysql.l1-6.ephec-ti.be
 
   postfix_container:
     build: ./mail
@@ -49,7 +49,7 @@ services:
       my_network:
         ipv4_address: 172.20.0.12
         aliases:
-          - mail.woodytoys.test
+          - mail.l1-6.ephec-ti.be
 
   dovecot_container:
     build: ./dovecot
@@ -61,7 +61,7 @@ services:
       my_network:
         ipv4_address: 172.20.0.13
         aliases:
-          - dovecot.woodytoys.test
+          - dovecot.l1-6.ephec-ti.be
 
   user_container:
     build: ./user
