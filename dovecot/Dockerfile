@@ -2,7 +2,7 @@
 FROM dovecot/dovecot:latest
 
 # Set environment variables
-ENV maildomain=l1-6.ephec-ti.be
+ENV maildomain=internal.l1-6.ephec-ti.be
 ENV smtp_user=user:password
 
 # Install mailutils for testing purposes

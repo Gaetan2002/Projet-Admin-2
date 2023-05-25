@@ -1,5 +1,5 @@
 $TTL    86400
-@       IN      SOA     ns.l1-6.ephec-ti.be. admin.l1-6.ephec-ti.be. (
+@       IN      SOA     ns.internal.l1-6.ephec-ti.be. admin.internal.l1-6.ephec-ti.be. (
                         2022041701      ; serial number
                         3600            ; refresh
                         1800            ; retry
@@ -7,14 +7,14 @@ $TTL    86400
                         86400           ; minimum TTL
                         )
 ;
-@       IN      NS      ns.l1-6.ephec-ti.be.
-@       IN      MX 10   mail.l1-6.ephec-ti.be.
+@       IN      NS      ns.internal.l1-6.ephec-ti.be.
+@       IN      MX 10   mail.internal.l1-6.ephec-ti.be.
 
-ns      IN      A       172.17.0.10
-www     IN      A       172.17.0.11
-site    IN      A       172.17.0.11
-b2b     IN      A       172.17.0.11
-erp     IN      A       172.17.0.11
-mail    IN      A       172.17.0.12
-dovecot IN      A       172.17.0.13
-mysql   IN      A       172.17.0.14
+ns      IN      A       10.114.0.10
+www     IN      A       10.114.0.11
+site    IN      A       10.114.0.11
+b2b     IN      A       10.114.0.11
+erp     IN      A       10.114.0.11
+mail    IN      A       10.114.0.12
+dovecot IN      A       10.114.0.13
+mysql   IN      A       10.114.0.14
