@@ -20,7 +20,8 @@ RUN echo "samuel:password" | chpasswd
 RUN echo "julien:password" | chpasswd
 
 COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY wait-for-dns.sh /wait-for-dns.sh
 
+ENTRYPOINT ["/wait-for-dns.sh","/entrypoint.sh"]
 EXPOSE 53/tcp
 EXPOSE 53/udp

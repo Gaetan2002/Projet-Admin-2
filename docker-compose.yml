@@ -68,9 +68,7 @@ services:
     container_name: user_container
     command: tail -f /dev/null
     dns:
-      - dns_server
-    depends_on:
-      - dns_server
+      - 192.168.0.10
     networks:
       my_network:
 
