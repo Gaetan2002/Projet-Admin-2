@@ -19,6 +19,9 @@ RUN useradd -m -s /bin/bash julien
 RUN echo "samuel:password" | chpasswd
 RUN echo "julien:password" | chpasswd
 
+# Set the DNS
+RUN echo "nameserver 192.168.0.10" > /etc/resolv.conf
+
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
