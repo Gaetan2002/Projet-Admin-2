@@ -1,8 +1,8 @@
 CREATE DATABASE IF NOT EXISTS site_db;
 
-CREATE USER IF NOT EXISTS 'site_user'@'172.20.0.11' IDENTIFIED BY 'site_password';
+CREATE USER IF NOT EXISTS 'site_user'@'172.17.0.11' IDENTIFIED BY 'site_password';
 
-GRANT ALL PRIVILEGES ON site_db.* TO 'site_user'@'172.20.0.11';
+GRANT ALL PRIVILEGES ON site_db.* TO 'site_user'@'172.17.0.11';
 
 FLUSH PRIVILEGES;
 

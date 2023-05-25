@@ -10,11 +10,11 @@ $TTL    86400
 @       IN      NS      ns.l1-6.ephec-ti.be.
 @       IN      MX 10   mail.l1-6.ephec-ti.be.
 
-ns      IN      A       172.20.0.10
-www     IN      A       172.20.0.11
-site    IN      A       172.20.0.11
-b2b     IN      A       172.20.0.11
-erp     IN      A       172.20.0.11
-mail    IN      A       172.20.0.12
-dovecot IN      A       172.20.0.13
-mysql   IN      A       172.20.0.14
+ns      IN      A       172.17.0.10
+www     IN      A       172.17.0.11
+site    IN      A       172.17.0.11
+b2b     IN      A       172.17.0.11
+erp     IN      A       172.17.0.11
+mail    IN      A       172.17.0.12
+dovecot IN      A       172.17.0.13
+mysql   IN      A       172.17.0.14
