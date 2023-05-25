@@ -66,7 +66,7 @@ services:
   user_container:
     build: ./user
     container_name: user_container
-    command: RUN echo "nameserver 192.168.0.10" > /etc/resolv.conf && tail -f /dev/null
+    command: echo "nameserver 192.168.0.10" > /etc/resolv.conf && tail -f /dev/null
     dns:
       - 192.168.0.10
     networks:
