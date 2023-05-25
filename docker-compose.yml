@@ -4,8 +4,8 @@ services:
     build: ./resolver
     container_name: dns_server
     ports:
-      - '5455:53/udp'
-      - '5456:53/tcp'
+      - '53/udp'
+      - '53/tcp'
     networks:
       my_network:
         ipv4_address: 192.168.0.10
@@ -44,7 +44,7 @@ services:
     build: ./mail
     container_name: postfix_container
     ports:
-      - '2526:25'
+      - '25'
     networks:
       my_network:
         ipv4_address: 192.168.0.12
@@ -55,8 +55,8 @@ services:
     build: ./dovecot
     container_name: dovecot_container
     ports:
-      - '143:143'
-      - '993:993'
+      - '143'
+      - '993'
     networks:
       my_network:
         ipv4_address: 192.168.0.13
@@ -66,7 +66,7 @@ services:
   user_container:
     build: ./user
     container_name: user_container
-    command: tail -f /dev/null
+    command: RUN echo "nameserver 192.168.0.10" > /etc/resolv.conf && tail -f /dev/null
     dns:
       - 192.168.0.10
     networks:
@@ -78,4 +78,4 @@ networks:
       driver: default
       config:
         - subnet: 192.168.0.0/20
-          gateway: 1
+          gateway: 192.168.0.1

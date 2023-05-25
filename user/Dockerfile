@@ -22,7 +22,5 @@ RUN echo "julien:password" | chpasswd
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
-# RUN echo "nameserver 192.168.0.10" > /etc/resolv.conf
-
 EXPOSE 53/tcp
 EXPOSE 53/udp
