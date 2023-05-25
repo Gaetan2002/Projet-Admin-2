@@ -8,7 +8,7 @@ services:
       - '5456:53/tcp'
     networks:
       my_network:
-        ipv4_address: 10.114.0.10
+        ipv4_address: 192.168.0.10
         aliases:
           - ns.internal.l1-6.ephec-ti.be
 
@@ -17,7 +17,7 @@ services:
     container_name: web_server
     networks:
       my_network:
-        ipv4_address: 10.114.0.11
+        ipv4_address: 192.168.0.11
         aliases:
           - www.internal.l1-6.ephec-ti.be
     volumes:
@@ -36,7 +36,7 @@ services:
     env_file: ./mysql/env.list
     networks:
       my_network:
-        ipv4_address: 10.114.0.14
+        ipv4_address: 192.168.0.14
         aliases:
           - mysql.internal.l1-6.ephec-ti.be
 
@@ -47,7 +47,7 @@ services:
       - '2526:25'
     networks:
       my_network:
-        ipv4_address: 10.114.0.12
+        ipv4_address: 192.168.0.12
         aliases:
           - mail.internal.l1-6.ephec-ti.be
 
@@ -59,7 +59,7 @@ services:
       - '993:993'
     networks:
       my_network:
-        ipv4_address: 10.114.0.13
+        ipv4_address: 192.168.0.13
         aliases:
           - dovecot.internal.l1-6.ephec-ti.be
 
@@ -68,7 +68,7 @@ services:
     container_name: user_container
     command: tail -f /dev/null
     dns:
-      - 10.114.0.10
+      - 192.168.0.10
     networks:
       my_network:
 
@@ -77,5 +77,5 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 10.114.0.0/20
+        - subnet: 192.168.0.0/20
           gateway: 64.226.80.1
