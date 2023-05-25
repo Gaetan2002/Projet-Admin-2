@@ -69,6 +69,8 @@ services:
     command: tail -f /dev/null
     dns:
       - dns_server
+    depends_on:
+      - dns_server
     networks:
       my_network:
 
