@@ -68,7 +68,7 @@ services:
     container_name: user_container
     command: tail -f /dev/null
     dns:
-      - 192.168.0.10
+      - dns_server
     networks:
       my_network:
 
