@@ -1,9 +1,10 @@
+
 zone "internal.l1-6.ephec-ti.be" {
     type master;
     file "/etc/bind/db.internal.l1-6.ephec-ti.be";
 };
 
-zone "0.20.172.in-addr.arpa" {
+zone "0.168.192.in-addr.arpa" {
     type master;
     file "/etc/bind/db.192.168.0";
 };
