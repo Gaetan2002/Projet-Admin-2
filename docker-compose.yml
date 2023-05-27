@@ -1,15 +1,27 @@
 version: '3.9'
 services:
-  dns_server:
-    build: ./soa
-    container_name: dns_server
+  resolver:
+    build: ./resolver
+    container_name: resolver
     ports:
       - '53/tcp'
+      - '53/udp'
     networks:
       my_network:
         ipv4_address: 192.168.0.10
         aliases:
           - ns.internal.l1-6.ephec-ti.be
+  soa_dmz:
+    build: ./soa_dmz
+    container_name: soa_dmz
+    ports:
+      - '53/tcp'
+      - '53/udp'
+    networks:
+      my_network:
+        ipv4_address: 192.168.0.20
+        aliases:
+          - ns.l1-6.ephec-ti.be
 
   web_server:
     build: ./web
