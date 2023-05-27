@@ -7,8 +7,8 @@ $TTL    86400
                         86400           ; minimum TTL
                         )
 ;
-@       IN      NS      ns.internal.l1-6.ephec-ti.be.
-@       IN      MX 10   mail.internal.l1-6.ephec-ti.be.
+        IN      NS      ns.internal.l1-6.ephec-ti.be.
+        IN      MX 10   mail.internal.l1-6.ephec-ti.be.
 
 ns      IN      A       192.168.0.10
 www     IN      A       192.168.0.11
