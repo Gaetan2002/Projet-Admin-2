@@ -1,13 +1,20 @@
 options {
-    directory "/var/cache/bind";
+        directory "/var/cache/bind";
 
-    recursion yes;
-    allow-query { any; };
-    allow-recursion { any; };
-    listen-on{ any; };
+        allow-query {
+                any;
+        };
 
-    forwarders { 192.168.0.10; };
+        allow-recursion {
+                none;
+        };
+        recursion no;
 
-    dnssec-validation auto;
-    auth-nxdomain no;
+        // Configure the IPs to listen on here.
+        listen-on port 53 { any; };
+        listen-on-v6 { none; };
+
+        pid-file "/var/run/named/named.pid";
+        allow-transfer { none;};
+        dnssec-validation no;
 };
