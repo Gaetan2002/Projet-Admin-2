@@ -8,7 +8,14 @@ zone "0.168.192.in-addr.arpa" {
     file "/etc/bind/db.192.168.0";
 };
 
-zone "l1-6.ephec-ti.be" {
+zone "test.l1-6.ephec-ti.be" {
     type master;
     file "/etc/bind/db.l1-6.ephec-ti.be";
 };
+
+zone "l1-6.ephec-ti.be" {
+    type forward;
+    forwarders { 192.168.0.10; };
+};
+
+
