@@ -15,7 +15,7 @@ zone "test.l1-6.ephec-ti.be" {
 
 zone "l1-6.ephec-ti.be" {
     type forward;
-    forwarders { 159.89.214.69; };
+    forwarders { 192.168.0.10; };
 };
 
 

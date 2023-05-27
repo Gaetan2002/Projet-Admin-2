@@ -6,7 +6,7 @@ options {
     allow-recursion { any; };
     listen-on{ any; };
 
-    forwarders { 159.89.214.69; };
+    forwarders { 192.168.0.10; };
 
     dnssec-validation auto;
     auth-nxdomain no;
