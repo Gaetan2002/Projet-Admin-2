@@ -8,7 +8,7 @@ services:
       - '53/tcp'
     networks:
       my_network:
-        ipv4_address: 192.168.0.10
+        ipv4_address: 159.89.214.69
         aliases:
           - ns.internal.l1-6.ephec-ti.be
 
