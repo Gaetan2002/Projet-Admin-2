@@ -10,10 +10,10 @@ $TTL    86400
 @       IN      NS      ns.l1-6.ephec-ti.be.
 @       IN      MX 10   mail.l1-6.ephec-ti.be.
 
-ns      IN      A       159.89.214.69
-www     IN      A       159.89.214.69
-site    IN      A       159.89.214.69
-b2b     IN      A       159.89.214.69
-erp     IN      A       159.89.214.69
-mail    IN      A       159.89.214.69
-dovecot IN      A       159.89.214.69
+ns      IN      A       192.168.0.10
+www     IN      A       192.168.0.10
+site    IN      A       192.168.0.10
+b2b     IN      A       192.168.0.10
+erp     IN      A       192.168.0.10
+mail    IN      A       192.168.0.10
+dovecot IN      A       192.168.0.10
