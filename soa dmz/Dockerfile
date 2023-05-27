@@ -5,9 +5,7 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y bind9 net-tools
 # Copy the BIND configuration files
 COPY named.conf /etc/bind/named.conf
-COPY db.internal.l1-6.ephec-ti.be /etc/bind/db.internal.l1-6.ephec-ti.be
 COPY db.l1-6.ephec-ti.be /etc/bind/db.l1-6.ephec-ti.be
-COPY db.192.168.0 /etc/bind/db.192.168.0
 
 # Expose the DNS port
 EXPOSE 53
