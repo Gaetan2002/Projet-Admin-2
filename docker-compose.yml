@@ -4,8 +4,8 @@ services:
     build: ./resolver
     container_name: dns_server
     ports:
-      - '53/udp'
-      - '53/tcp'
+      - '53/udp:53'
+      - '53/tcp:53'
     networks:
       my_network:
         ipv4_address: 192.168.0.10
