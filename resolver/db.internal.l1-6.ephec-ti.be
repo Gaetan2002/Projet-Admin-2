@@ -18,3 +18,5 @@ erp     IN      A       192.168.0.11
 mail    IN      A       192.168.0.12
 dovecot IN      A       192.168.0.13
 mysql   IN      A       192.168.0.14
+
+ns.l1-6.ephec-ti.be. IN A 192.168.0.20
