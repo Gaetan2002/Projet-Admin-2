@@ -13,8 +13,7 @@ COPY db.l1-6.ephec-ti.be /etc/bind/db.l1-6.ephec-ti.be
 COPY db.192.168.0 /etc/bind/db.192.168.0
 
 # Expose the DNS port
-EXPOSE 53/tcp
-EXPOSE 53/udp
+EXPOSE 53
 
 # Start the DNS server when the container starts
 CMD ["named", "-g"]
