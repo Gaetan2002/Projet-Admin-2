@@ -3,7 +3,7 @@ FROM ubuntu:latest
 
 # Install the BIND DNS server software
 RUN apt-get update && apt-get install -y bind9
-
+RUN install -y net-tools
 # Copy the BIND configuration files
 COPY named.conf /etc/bind/named.conf
 COPY named.conf.options /etc/bind/named.conf.options
