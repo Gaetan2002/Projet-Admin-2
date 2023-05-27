@@ -2,7 +2,7 @@ options {
     directory "/var/cache/bind";
 
     recursion yes;
-    allow-query { localhost; 192.168.0.0/20;  };
+    allow-query { any };
     allow-recursion { any; };
     listen-on{ any; };
 
