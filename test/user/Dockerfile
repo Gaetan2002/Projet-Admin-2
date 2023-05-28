@@ -7,17 +7,13 @@ RUN apt-get update && \
 
 # Preconfigure Postfix
 COPY install_postfix.sh /tmp/install_postfix.sh
-RUN /tmp/install_postfix.sh
-
-# Clean up
-RUN rm /tmp/install_postfix.sh
-
-RUN useradd -m -s /bin/bash samuel
-RUN useradd -m -s /bin/bash julien
-
-# Set passwords for users
-RUN echo "samuel:password" | chpasswd
-RUN echo "julien:password" | chpasswd
+RUN /tmp/install_postfix.sh && 
+rm /tmp/install_postfix.sh && 
+useradd -m -s /bin/bash samuel && 
+useradd -m -s /bin/bash julien && 
+# Set
+echo "samuel:password" | chpasswd && 
+echo "julien:password" | chpasswd
 
 COPY entrypoint.sh /entrypoint.sh
 
