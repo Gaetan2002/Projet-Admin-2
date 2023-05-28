@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y bind9 net-tools
 COPY named.conf /etc/bind/named.conf
 COPY public.l1-6.ephec-ti.conf /etc/bind/public.l1-6.ephec-ti.conf
 COPY reverse.public.conf /etc/bind/reverse.public.conf
+COPY internal.l1-6.ephec-ti.conf /etc/bind/internal.l1-6.ephec-ti.conf
+COPY reverse.internal.conf /etc/bind/reverse.internal.conf
+
 
 # Expose the DNS port
 EXPOSE 53

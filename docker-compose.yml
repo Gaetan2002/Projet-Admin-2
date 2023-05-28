@@ -1,17 +1,17 @@
 version: '1.0'
 services:
-  sz_resolver:
-    build: ./sz/resolver
-    container_name: sz_resolver
-    networks:
-      sz:
-        ipv4_address: 192.168.1.2
-  sz_soa:
-    build: ./sz/sz_soa
-    container_name: sz_soa
-    networks:
-      sz:
-        ipv4_address: 192.168.1.3
+  # sz_resolver:
+  #   build: ./sz/resolver
+  #   container_name: sz_resolver
+  #   networks:
+  #     sz:
+  #       ipv4_address: 192.168.1.2
+  # sz_soa:
+  #   build: ./sz/sz_soa
+  #   container_name: sz_soa
+  #   networks:
+  #     sz:
+  #       ipv4_address: 192.168.1.3
   user:
     build: ./users
     container_name: user
