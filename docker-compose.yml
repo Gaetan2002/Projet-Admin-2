@@ -20,6 +20,7 @@ services:
         ipv4_address: 192.168.1.2
         aliases:
           - ns.internal.l1-6.ephec-ti.be
+      dmz:
   dovecot:
     build: ./sz/dovecot
     container_name: dovecot
