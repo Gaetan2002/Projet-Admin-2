@@ -10,6 +10,20 @@ services:
         ipv4_address: 192.168.2.2
         aliases:
           - ns.l1-6.ephec-ti.be
+  dmz_web:
+    build: ./dmz/web
+    container_name: dmz_web
+    networks:
+      dmz:
+        ipv4_address: 192.168.2.3
+    volumes:
+      - ./dmz/web/site:/var/www/site
+      - ./dmz/web/b2b:/var/www/b2b
+      - ./dmz/web/erp:/var/www/erp
+    env_file: ./dmz/web/env.list
+    depends_on:
+      - mysql
+
   sz_dns:
     build: ./sz/sz_dns
     container_name: sz_dns
@@ -44,6 +58,7 @@ services:
         ipv4_address: 192.168.1.4
         aliases:
           - mysql.internal.l1-6.ephec-ti.be
+      dmz:
   user:
     build: ./users
     container_name: user
