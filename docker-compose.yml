@@ -16,6 +16,8 @@ services:
   dmz_web:
     build: ./dmz/web
     container_name: dmz_web
+    ports:
+      - 8080:80
     networks:
       dmz:
         ipv4_address: 192.168.2.3
