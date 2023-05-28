@@ -9,6 +9,7 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     dnsutils bind9utils nano iputils-ping mutt curl inetutils-traceroute postfix links wget && \
     chmod +x /tmp/install_postfix.sh && \
+    chmod +x /entrypoint.sh && \
     /tmp/install_postfix.sh && \
     rm /tmp/install_postfix.sh && \
     # Add users
