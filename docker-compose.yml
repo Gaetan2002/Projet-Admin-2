@@ -27,7 +27,7 @@ services:
     container_name: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
-    env_file: ./mysql/env.list
+    env_file: ./sz/mysql/env.list
     networks:
       sz:
         ipv4_address: 192.168.1.4
