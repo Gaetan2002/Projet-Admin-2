@@ -1,33 +1,33 @@
 version: '3.9'
 services:
   resolver:
-    build: ./resolver
+    build: ./internal/resolver
     container_name: resolver
     ports:
       - '53/tcp'
       - '53/udp'
     networks:
-      my_network:
+      sz:
         ipv4_address: 192.168.0.10
         aliases:
           - ns.internal.l1-6.ephec-ti.be
   soa_dmz:
-    build: ./soa_dmz
+    build: ./dmz/soa_dmz
     container_name: soa_dmz
     ports:
       - '53/tcp'
       - '53/udp'
     networks:
-      my_network:
+      dmz:
         ipv4_address: 192.168.0.20
         aliases:
           - ns.l1-6.ephec-ti.be
 
   web_server:
-    build: ./web
+    build: ./dmz/web
     container_name: web_server
     networks:
-      my_network:
+      dmz:
         ipv4_address: 192.168.0.11
         aliases:
           - www.internal.l1-6.ephec-ti.be
@@ -40,36 +40,36 @@ services:
       - mysql
 
   mysql:
-    build: ./mysql
+    build: ./internal/mysql
     container_name: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     env_file: ./mysql/env.list
     networks:
-      my_network:
+      sz:
         ipv4_address: 192.168.0.14
         aliases:
           - mysql.internal.l1-6.ephec-ti.be
 
   postfix_container:
-    build: ./mail
+    build: ./internal/mail
     container_name: postfix_container
     ports:
       - '25'
     networks:
-      my_network:
+      sz:
         ipv4_address: 192.168.0.12
         aliases:
           - mail.internal.l1-6.ephec-ti.be
 
   dovecot_container:
-    build: ./dovecot
+    build: ./internal/dovecot
     container_name: dovecot_container
     ports:
       - '143'
       - '993'
     networks:
-      my_network:
+      sz:
         ipv4_address: 192.168.0.13
         aliases:
           - dovecot.internal.l1-6.ephec-ti.be
@@ -81,12 +81,24 @@ services:
     dns:
       - 192.168.0.10
     networks:
-      my_network:
+      users:
 
 networks:
-  my_network:
+  dmz:
     ipam:
       driver: default
       config:
-        - subnet: 192.168.0.0/20
+        - subnet: 192.168.0.0/24
           gateway: 192.168.0.1
+  sz:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.1.0/24
+          gateway: 192.168.1.1
+  users:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.2.0/24
+          gateway: 192.168.2.1
