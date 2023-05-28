@@ -1,16 +1,5 @@
 version: '3.9'
 services:
-  resolver:
-    build: ./internal/resolver
-    container_name: resolver
-    ports:
-      - '53/tcp'
-      - '53/udp'
-    networks:
-      sz:
-        ipv4_address: 192.168.0.10
-        aliases:
-          - ns.internal.l1-6.ephec-ti.be
   soa_dmz:
     build: ./dmz/soa_dmz
     container_name: soa_dmz
@@ -19,7 +8,7 @@ services:
       - '53/udp'
     networks:
       dmz:
-        ipv4_address: 192.168.0.20
+        ipv4_address: 192.168.0.2
         aliases:
           - ns.l1-6.ephec-ti.be
 
@@ -38,6 +27,18 @@ services:
     env_file: ./web/env.list
     depends_on:
       - mysql
+
+  resolver:
+    build: ./internal/resolver
+    container_name: resolver
+    ports:
+      - '53/tcp'
+      - '53/udp'
+    networks:
+      sz:
+        ipv4_address: 192.168.1.2
+        aliases:
+          - ns.internal.l1-6.ephec-ti.be
 
   mysql:
     build: ./internal/mysql
@@ -70,7 +71,7 @@ services:
       - '993'
     networks:
       sz:
-        ipv4_address: 192.168.0.13
+        ipv4_address: 192.168.1.1
         aliases:
           - dovecot.internal.l1-6.ephec-ti.be
 
@@ -79,7 +80,7 @@ services:
     container_name: user_container
     command: tail -f /dev/null
     dns:
-      - 192.168.0.10
+      - 192.168.1.10
     networks:
       users:
 
@@ -90,12 +91,14 @@ networks:
       config:
         - subnet: 192.168.0.0/24
           gateway: 192.168.0.1
+
   sz:
     ipam:
       driver: default
       config:
         - subnet: 192.168.1.0/24
           gateway: 192.168.1.1
+
   users:
     ipam:
       driver: default
