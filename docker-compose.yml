@@ -20,6 +20,19 @@ services:
     networks:
       sz:
         ipv4_address: 192.168.1.2
+        aliases:
+          - ns.internal.l1-6.ephec-ti.be
+  mysql:
+    build: ./sz/mysql
+    container_name: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    env_file: ./mysql/env.list
+    networks:
+      sz:
+        ipv4_address: 192.168.1.4
+        aliases:
+          - mysql.internal.l1-6.ephec-ti.be
   user:
     build: ./users
     container_name: user
