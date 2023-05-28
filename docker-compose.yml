@@ -33,6 +33,17 @@ services:
         ipv4_address: 192.168.1.4
         aliases:
           - mysql.internal.l1-6.ephec-ti.be
+  dovecot:
+    build: ./sz/dovecot
+    container_name: dovecot_container
+    ports:
+      - '143'
+      - '993'
+    networks:
+      sz:
+        ipv4_address: 192.168.1.3
+        aliases:
+          - dovecot.internal.l1-6.ephec-ti.be
   user:
     build: ./users
     container_name: user
