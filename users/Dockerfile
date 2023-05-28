@@ -20,6 +20,3 @@ RUN apt-get update && \
     echo "julien:password" | chpasswd
 
 ENTRYPOINT ["/entrypoint.sh"]
-
-EXPOSE 53/tcp
-EXPOSE 53/udp

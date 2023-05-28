@@ -12,7 +12,8 @@ COPY reverse.internal.conf /etc/bind/reverse.internal.conf
 
 
 # Expose the DNS port
-EXPOSE 53
+EXPOSE 53/tcp
+EXPOSE 53/udp
 
 # Start the DNS server when the container starts
 CMD ["named", "-g"]
