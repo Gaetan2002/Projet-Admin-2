@@ -10,5 +10,5 @@ RUN apt-get update && \
     apt-get install -y mailutils
 
 # Expose IMAP and IMAPS ports
-EXPOSE 143/tcp
-EXPOSE 993/tcp
+EXPOSE 143
+EXPOSE 993
