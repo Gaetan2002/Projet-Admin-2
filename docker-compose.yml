@@ -31,12 +31,12 @@ services:
       - 192.168.1.2
       - 192.168.2.2
     networks:
+      dmz:
+        ipv4_address: 192.168.2.5
       sz:
         ipv4_address: 192.168.1.2
         aliases:
           - ns.internal.l1-6.ephec-ti.be
-      dmz:
-        ipv4_address: 192.168.2.5
   dovecot:
     build: ./sz/dovecot
     container_name: dovecot
@@ -60,7 +60,7 @@ services:
         aliases:
           - mysql.internal.l1-6.ephec-ti.be
       dmz:
-      ipv4_address: 192.168.2.6
+        ipv4_address: 192.168.2.6
   user:
     build: ./users
     container_name: user
