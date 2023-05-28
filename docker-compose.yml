@@ -10,9 +10,9 @@ services:
         ipv4_address: 192.168.2.2
         aliases:
           - ns.l1-6.ephec-ti.be
-  dns_internal:
-    build: ./sz/dns_internal
-    container_name: dns_internal
+  sz_dns:
+    build: ./sz/sz_dns
+    container_name: sz_dns
     dns:
       - 192.168.1.2
     networks:
