@@ -14,8 +14,8 @@ services:
     build: ./sz/dovecot
     container_name: dovecot
     ports:
-      - '3145643:143'
-      - '3465993:993'
+      - '31412:143'
+      - '34613:993'
     networks:
       sz:
         ipv4_address: 192.168.1.3
