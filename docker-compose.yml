@@ -30,6 +30,9 @@ services:
     dns:
       - 192.168.1.2
       - 192.168.2.2
+    ports:
+      - 5353:53/tcp
+      - 5353:53/udp
     networks:
       dmz:
         ipv4_address: 192.168.2.5
