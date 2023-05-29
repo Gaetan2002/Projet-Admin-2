@@ -11,7 +11,7 @@ COPY erp.conf /etc/apache2/sites-available/erp.conf
 
 # Update package lists and install necessary packages for Apache, PHP, and MySQL support
 RUN apt-get update && \
-apt-get install -y apache2 php libapache2-mod-php php-mysql && \
+apt-get install -y apache2 php libapache2-mod-php php-mysql net-tools && \
 # Enable virtual hosts for each site and disable the default site
 a2ensite site.conf && \
 a2ensite b2b.conf && \
