@@ -5,7 +5,7 @@ COPY entrypoint.sh /entrypoint.sh
 # Update
 RUN apt-get update && \
     # Install packages
-    apt-get install -y apt-utils && \
+    apt-get install -y apt && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     dnsutils bind9utils nano iputils-ping mutt curl inetutils-traceroute postfix links wget net-tools && \
     chmod +x /tmp/install_postfix.sh && \
