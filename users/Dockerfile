@@ -15,8 +15,10 @@ RUN apt-get update && \
     # Add users
     useradd -m -s /bin/bash samuel && \
     useradd -m -s /bin/bash julien && \
+    useradd -m -s /bin/bash gaetan && \
     # Set passwords
     echo "samuel:password" | chpasswd && \
-    echo "julien:password" | chpasswd
+    echo "julien:password" | chpasswd && \
+    echo "gaetan:password" | chpasswd
 
 ENTRYPOINT ["/entrypoint.sh"]
