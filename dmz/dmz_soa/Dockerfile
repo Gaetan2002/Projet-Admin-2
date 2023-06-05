@@ -9,7 +9,8 @@ COPY l1-6.ephec-ti.conf /etc/bind/l1-6.ephec-ti.conf
 COPY reverse.public.conf /etc/bind/reverse.public.conf
 
 # Expose the DNS port
-EXPOSE 53
+EXPOSE 53/tcp
+EXPOSE 53/udp
 
 # Start the DNS server when the container starts
 CMD ["named", "-g"]
