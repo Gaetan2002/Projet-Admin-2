@@ -1,0 +1,36 @@
+version: "1.0"
+services:
+    containerA:
+        image: ubuntu
+        container_name: containerA
+        networks:
+            - reseau1
+        volumes:
+            - ./Volume1:/app
+            - /src:/src
+        command: tail -f /dev/null
+    containerB:
+        image: ubuntu
+        container_name: containerB
+        networks:
+            - reseau1
+            - reseau2
+        volumes:
+            - ./Volume1:/app1
+            - ./Volume2:/app2
+        command: tail -f /dev/null
+    containerC:
+        image: ubuntu
+        container_name: containerC
+        networks:
+            - reseau2
+        volumes:
+            - ./Volume2:/app
+        command: tail -f /dev/null
+networks:
+    reseau1:
+        ipam:
+            driver: bridge
+    reseau2:
+        ipam:
+            driver: bridge
