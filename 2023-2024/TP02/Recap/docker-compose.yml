@@ -29,8 +29,5 @@ services:
         command: tail -f /dev/null
 networks:
     reseau1:
-        ipam:
-            driver: bridge
+
     reseau2:
-        ipam:
-            driver: bridge
