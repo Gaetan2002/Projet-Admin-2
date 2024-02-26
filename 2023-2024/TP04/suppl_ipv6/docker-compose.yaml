@@ -1,0 +1,11 @@
+version: '1.0'
+services:
+  dns:
+    image: ubuntu/bind9:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - "./bind/:/etc/bind/"
+    
+

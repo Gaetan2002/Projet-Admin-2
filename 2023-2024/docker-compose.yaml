@@ -3,6 +3,28 @@ services:
   dns:
     image: ubuntu/bind9:latest
     ports:
-      - "53:53"
+      - "53:53/tcp"
+      - "53:53/udp"
     volumes:
       - "./TP04/bind/:/etc/bind/"
+    networks:
+      admin2:
+        ipv4_address: 10.0.0.2
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    restart: always
+    volumes:
+      - ./TP03/web/:/usr/share/nginx/html/
+    networks:
+      admin2:
+        ipv4_address: 10.0.0.3
+
+networks:
+  admin2:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.0.0/24
+          gateway: 10.0.0.1
