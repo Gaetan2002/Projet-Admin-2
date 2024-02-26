@@ -1,0 +1,8 @@
+version: '1.0'
+services:
+  dns:
+    image: ubuntu/bind9:latest
+    ports:
+      - "53:53"
+    volumes:
+      - "./TP04/bind/:/etc/bind/"
