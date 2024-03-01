@@ -1,13 +1,12 @@
 $TTL    86400
-@       IN      SOA     ns.l1-3.ephec-ti.be. admin.l1-3.ephec-ti.be. (
+@       IN      SOA     ns admin.l1-3x.ephec-ti.be. (
                         2023041701      ; serial number
                         3600            ; refresh
                         1800            ; retry
                         604800          ; expire
                         86400           ; minimum TTL
                         )
-;
-        IN      NS      ns.l1-3.ephec-ti.be.
-
-ns     IN      A        54.37.15.74
-www    IN      A        54.37.15.74
+        IN      NS      ns
+        IN      A       54.37.15.74
+www     IN      CNAME   @
+ns      IN      A       54.37.15.74

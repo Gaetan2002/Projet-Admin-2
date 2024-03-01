@@ -2,6 +2,7 @@ version: '1.0'
 services:
   dns:
     image: ubuntu/bind9:latest
+    container_name: dns-server
     ports:
       - "53:53/tcp"
       - "53:53/udp"
@@ -12,6 +13,7 @@ services:
         ipv4_address: 10.0.0.2
   nginx:
     image: nginx:latest
+    container_name: web-server
     ports:
       - "80:80"
     restart: always
@@ -23,6 +25,7 @@ services:
 
 networks:
   admin2:
+    name: admin2
     ipam:
       driver: default
       config:
