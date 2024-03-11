@@ -7,7 +7,7 @@ services:
       - "53:53/tcp"
       - "53:53/udp"
     volumes:
-      - "./TP04/bind/:/etc/bind/"
+      - "./bind/:/etc/bind/"
     networks:
       admin2:
         ipv4_address: 10.0.0.2
@@ -18,7 +18,8 @@ services:
       - "80:80"
     restart: always
     volumes:
-      - ./TP03/web/:/usr/share/nginx/html/
+      - ./web:/var/html/
+      - ./nginx:/etc/nginx
     networks:
       admin2:
         ipv4_address: 10.0.0.3

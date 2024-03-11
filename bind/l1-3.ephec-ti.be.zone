@@ -1,5 +1,5 @@
 $TTL    86400
-@       IN      SOA     ns admin.l1-3x.ephec-ti.be. (
+@       IN      SOA     ns admin.l1-3.ephec-ti.be. (
                         2023041701      ; serial number
                         3600            ; refresh
                         1800            ; retry
@@ -8,5 +8,6 @@ $TTL    86400
                         )
         IN      NS      ns
         IN      A       54.37.15.74
-www     IN      CNAME   @
 ns      IN      A       54.37.15.74
+site1   IN      A       54.37.15.74
+site2   IN      A       54.37.15.74
