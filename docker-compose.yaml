@@ -1,13 +1,14 @@
 version: '1.0'
 services:
   dns:
-    image: ubuntu/bind9:latest
+    build: ./bind
     container_name: dns-server
+    restart: always
     ports:
       - "53:53/tcp"
       - "53:53/udp"
     volumes:
-      - "./bind/:/etc/bind/"
+      - "./bind/data/:/etc/bind/"
     networks:
       admin2:
         ipv4_address: 10.0.0.2
@@ -18,13 +19,25 @@ services:
       - "80:80"
     restart: always
     volumes:
-      - ./web:/var/www/html
-      - ./nginx:/etc/nginx
-      - ./site1.conf:/etc/nginx/sites-enabled/site1.conf
-      - ./site2.conf:/etc/nginx/sites-enabled/site2.conf
+      - ./nginx/html:/var/www/html
+      - ./nginx/conf:/etc/nginx
     networks:
       admin2:
         ipv4_address: 10.0.0.3
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mypass
+      MYSQL_DATABASE: mariadbtest
+      MYSQL_USER: mariadb
+      MYSQL_PASSWORD: mypass
+    volumes:
+      - /home/samaze123/mysql:/var/lib/mysql
+    networks:
+      admin2:
+        ipv4_address: 10.0.0.4
 
 networks:
   admin2:
