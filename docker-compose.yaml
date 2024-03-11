@@ -18,8 +18,10 @@ services:
       - "80:80"
     restart: always
     volumes:
-      - ./web:/var/html/
+      - ./web:/var/www/html
       - ./nginx:/etc/nginx
+      - ./site1.conf:/etc/nginx/sites-enabled/site1.conf
+      - ./site2.conf:/etc/nginx/sites-enabled/site2.conf
     networks:
       admin2:
         ipv4_address: 10.0.0.3

@@ -1,7 +1,7 @@
 $TTL    86400
 @       IN      SOA     ns admin.l1-3.ephec-ti.be. (
                         2023041701      ; serial number
-                        3600            ; refresh
+                        60            ; refresh
                         1800            ; retry
                         604800          ; expire
                         86400           ; minimum TTL
