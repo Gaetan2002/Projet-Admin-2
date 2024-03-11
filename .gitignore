@@ -1,2 +1,4 @@
 /vm
 .vscode/settings.json
+.my-healthcheck.cnf
+*log
