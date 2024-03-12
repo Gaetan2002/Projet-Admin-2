@@ -7,6 +7,10 @@
         border: 1px solid black;
         border-collapse: collapse;
     }
+    a{
+        text-decoration: none;
+        color: black;
+    }
 </style>
 
 <head>
@@ -40,5 +44,8 @@ while ($row = mysqli_fetch_array($result)) {
 ?>
 
 </table>
+<br>
+<button type="button"><a href="http://site1.l1-3.ephec-ti.be">BACK</a></button>
+
 </body>
 </html>
