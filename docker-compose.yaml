@@ -15,9 +15,9 @@ services:
   nginx:
     image: nginx:latest
     container_name: web-server
+    restart: always
     ports:
       - "80:80"
-    restart: always
     volumes:
       - ./nginx/html:/var/www/html
       - ./nginx/conf:/etc/nginx
@@ -38,6 +38,7 @@ services:
     networks:
       admin2:
         ipv4_address: 10.0.0.4
+  
 
 networks:
   admin2:

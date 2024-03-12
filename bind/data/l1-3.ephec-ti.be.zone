@@ -9,6 +9,6 @@ $TTL    86400
         IN      NS      ns
         IN      A       54.37.15.74
 ns      IN      A       54.37.15.74
-site1   IN      A       54.37.15.74
+www     IN      A       54.37.15.74
 site2   IN      A       54.37.15.74
-site3   IN      A       54.37.15.74
+
