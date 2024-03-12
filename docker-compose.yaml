@@ -2,7 +2,7 @@ version: '1.0'
 services:
   dns:
     build: ./bind
-    container_name: dns-server
+    container_name: dns
     restart: always
     ports:
       - "53:53/tcp"
@@ -14,7 +14,7 @@ services:
         ipv4_address: 10.0.0.2
   nginx:
     image: nginx:latest
-    container_name: web-server
+    container_name: web
     restart: always
     ports:
       - "80:80"
@@ -26,7 +26,7 @@ services:
         ipv4_address: 10.0.0.3
   mariadb:
     image: mariadb:latest
-    container_name: mariadb
+    container_name: db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: mypass
@@ -38,7 +38,15 @@ services:
     networks:
       admin2:
         ipv4_address: 10.0.0.4
-  
+  php:
+    build: ./php
+    container_name: php
+    restart: always
+    volumes:
+      - "./nginx/html/site1:/var/www/html/site1"
+    networks:
+      admin2:
+        ipv4_address: 10.0.0.5
 
 networks:
   admin2:
